@@ -1,0 +1,74 @@
+
+.navbar-custom {
+  height: 60px;
+  background-color: #123524 !important;
+}
+
+.navbar-brand-custom {
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 2rem;
+}
+
+.table-custom {
+  background-color: #436850;
+}
+
+.text-white {
+  color: white !important;
+}
+
+/* Buttons */
+.custom-btn {
+  border: 1px solid black;
+  background-color: #436850;
+  color: white;
+}
+
+.custom-btn:hover {
+  background-color: #365e42;
+}
+
+.logout-btn {
+  border: 1px solid black;
+  background-color: #AC4425;
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #8b3620;
+}
+
+.status-btn {
+  cursor: default;
+}
+
+.edit-btn {
+  background-color: #007074;
+  color: white;
+  border: none;
+}
+
+.edit-btn:hover {
+  background-color: #034C53;
+}
+
+.delete-btn {
+  background-color: #BF3131;
+  color: white;
+  border: none;
+}
+
+.delete-btn:hover {
+  background-color: #7D0A0A;
+}
+
+.view-btn {
+  background-color: #3F4F44;
+  color: white;
+  border: none;
+}
+
+.view-btn:hover {
+  background-color: #2C3930;
+}

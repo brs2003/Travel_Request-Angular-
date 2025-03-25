@@ -1,0 +1,125 @@
+
+<header>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Company logo -->
+            <a class="navbar-brand" href="#">
+                <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="40" class="d-inline-block align-text-top">
+            </a>
+            <!-- Navbar toggler for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Navbar links -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark mb-2 mx-2" 
+                           style="border: 1px solid black; color: white; background-color:#436850;" 
+                           routerLink="/admins/adminaddemployee">
+                           Add Employee
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark mb-2 mx-2" style="border: 1px solid black; color: white; background-color:#436850;"routerLink="/admins/adminaddmanager" >Add-Manager</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="btn btn-outline-dark dropdown-toggle mb-2 mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: 1px solid black; color: white; background-color:#436850;">
+                            Workers
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" routerLink="/admins/ademployeelist">Employee</a></li>
+                            <li><a class="dropdown-item" routerLink="/admins/admanagerlist">Manager</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark mb-2"  style="border: 1px solid black; color: black; background-color: #AC4425;color:white" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="bg vh-100">
+<section>
+    <div class="container-fluid mt-2">
+        <div class="row">
+            <!-- Travel Request button -->
+            <div class="col-md-4 d-flex justify-content-start"></div>
+                <button class="btn" style="background-color:#123524; 
+                color: rgb(255, 255, 255); font-family:'Playfair Display', serif; font-size: 2rem;">Travel Request</button>
+            </div>
+        </div>
+        <div class="row mt-4 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-lg border-0 rounded-4 p-" style="background-color: #f8f9fa;">
+                    <div class="card-body text-center">
+                        <h4 class="fw-bold text-dark mb-4 ">Travel Request Status</h4>
+                        <div class="row">
+                            <div class="col-6 col-md-3" *ngFor="let status of requestStatus">
+                                <div class="status-box d-flex flex-column align-items-center">
+                                    <span class="status-indicator rounded-circle mb-2" [style.backgroundColor]="status.color"></span>
+                                    <h6 class="fw-semibold text-secondary">{{ status.title }}</h6>
+                                    <span class="fw-bold text-dark fs-5">{{ status.count }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+</section>
+<section>
+    <div class="container mt-2 mb-2">
+        <div class="row mt-4" style="background-color:#1F4529; padding: 20px; border-radius: 5px;">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" style="background-color:#436850;color:white">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>From-Date</th>
+                                <th>To-Date</th>
+                                <th>Reason</th>
+                                <th>Manager Status</th>
+                                <th>Admin Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Sample data rows -->
+                            <tr *ngFor="let request of filteredRequests" 
+                            [routerLink]="['/admins/cancelrequest', request.req_id]" 
+                                class="clickable-row">
+                                <td>{{ request.req_id }}</td>
+                                <td>{{ request.employee.first_name }}</td>
+                                <td>{{ request.from_date }}</td>
+                                <td>{{ request.to_date }}</td>
+                                <td>{{ request.purpose}}</td>
+                                <td>
+                                    <span class="badge bg-warning" *ngIf="request.manager_status === 'Pending'">Pending</span>
+                                    <span class="badge bg-success" *ngIf="request.manager_status === 'Approved'">Approved</span>
+                                    <span class="badge bg-primary" *ngIf="request.manager_status === 'OnProgress'">OnProgress</span>
+                                    <span class="badge bg-danger" *ngIf="request.manager_status === 'Declined'">Declined</span>
+                                </td>
+                                <td>
+                                    <span class="badge bg-danger" *ngIf="request.admin_status === 'Closed'">Closed</span>
+                                    <span class="badge bg-warning" *ngIf="request.admin_status === 'Not_closed'">Not Closed</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+

@@ -1,0 +1,134 @@
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+        <div class="container-fluid">
+            <!-- Company Logo and Home Button -->
+            <a class="navbar-brand d-flex align-items-center">
+                <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="30" class="d-inline-block align-text-top">
+                <a class="nav-link text-white ms-2" routerLink="/employees/edashboard">Home</a>
+            </a>
+
+            <!-- Navbar Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Logout Button on the Right -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark mb-2" style="border: 1px solid black; color: black; background-color: #AC4425; color: white;" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100 pt-5">
+    <div class="col-md-6">
+        <div class="card p-4 shadow-lg">
+            <h2 class="text-center mb-4" style="color: #123524;">Travel Request Form</h2>
+            <p class="text-center text-muted">Please fill out the form below to request travel arrangements.</p>
+
+            <form [formGroup]="travelRequestForm" (ngSubmit)="onSubmit()">
+                <!-- Manager Name (Readonly) -->
+                <div class="mb-3">
+                    <label for="managerName" class="form-label">Manager Name:</label>
+                    <input type="text" id="managerName" class="form-control" [value]="managerName"  readonly>
+                </div>
+
+                <!-- Purpose of Travel -->
+                <div class="mb-3">
+                    <label for="purpose" class="form-label">Purpose of Travel:</label>
+                    <input type="text" id="purpose" class="form-control" formControlName="purpose">
+                    <div *ngIf="travelRequestForm.get('purpose')?.invalid && travelRequestForm.get('purpose')?.touched">
+                        <small class="text-danger">Purpose is required</small>
+                    </div>
+                </div>
+
+                <!-- From and To Location -->
+                <div class="mb-3">
+                    <label for="fromLocation" class="form-label">From Location:</label>
+                    <input type="text" id="fromLocation" class="form-control" formControlName="from_loc">
+                    <div *ngIf="travelRequestForm.get('from_loc')?.invalid && travelRequestForm.get('from_loc')?.touched">
+                        <small class="text-danger">From Location is required</small>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="toLocation" class="form-label">To Location:</label>
+                    <input type="text" id="toLocation" class="form-control" formControlName="to_loc">
+                    <div *ngIf="travelRequestForm.get('to_loc')?.invalid && travelRequestForm.get('to_loc')?.touched">
+                        <small class="text-danger">To Location is required</small>
+                    </div>
+                </div>
+
+                <!-- Travel Mode -->
+                <div class="mb-3">
+                    <label for="travelMode" class="form-label">Preferred Travel Mode:</label>
+                    <select id="travelMode" class="form-select" formControlName="travel_mode">
+                        <option value="">Select Mode</option>
+                        <option value="Flight">Flight</option>
+                        <option value="Train">Train</option>
+                        <option value="Bus">Bus</option>
+                        <option value="Car">Car</option>
+                    </select>
+                    <div *ngIf="travelRequestForm.get('travel_mode')?.invalid && travelRequestForm.get('travel_mode')?.touched">
+                        <small class="text-danger">Travel Mode is required</small>
+                    </div>
+                </div>
+
+                <!-- Travel Dates -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="travelFrom" class="form-label">Travel From Date:</label>
+                        <input type="date" id="travelFrom" class="form-control" formControlName="from_date">
+                        <div *ngIf="travelRequestForm.get('from_date')?.invalid && travelRequestForm.get('from_date')?.touched">
+                            <small class="text-danger">From Date is required</small>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="travelTo" class="form-label">Travel To Date:</label>
+                        <input type="date" id="travelTo" class="form-control" formControlName="to_date">
+                        <div *ngIf="travelRequestForm.get('to_date')?.invalid && travelRequestForm.get('to_date')?.touched">
+                            <small class="text-danger">To Date is required</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lodging Required -->
+                <div class="mb-3">
+                    <label for="lodging" class="form-label">Is Lodging Required?</label>
+                    <select id="lodging" class="form-select" formControlName="lodging">
+                        <option value="">Select</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                    <div *ngIf="travelRequestForm.get('lodging')?.invalid && travelRequestForm.get('lodging')?.touched">
+                        <small class="text-danger">Please specify if lodging is required</small>
+                    </div>
+                    </div>
+
+                <!-- Preferred Lodging Location (Visible only if lodging is Yes) -->
+                <div class="mb-3" *ngIf="travelRequestForm.get('lodging')?.value === 'Yes'">
+                    <label for="lodgingLocation" class="form-label">Preferred Lodging Location:</label>
+                    <input type="text" id="lodgingLocation" class="form-control" formControlName="lodgingLocation">
+                    <div *ngIf="travelRequestForm.get('lodgingLocation')?.invalid && travelRequestForm.get('lodgingLocation')?.touched">
+                        <small class="text-danger">Lodging location is required</small>
+                    </div>
+                </div>
+
+                <!-- Additional Request -->
+                <div class="mb-3">
+                    <label for="additionalRequest" class="form-label">Additional Request:</label>
+                    <textarea id="additionalRequest" class="form-control" formControlName="additional_request"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

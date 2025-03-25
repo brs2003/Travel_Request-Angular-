@@ -1,0 +1,101 @@
+
+
+<header>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+      <div class="container-fluid">
+          <!-- Company Logo and Home Button -->
+          <a class="navbar-brand d-flex align-items-center">
+              <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="30" class="d-inline-block align-text-top">
+              <a class="nav-link text-white ms-2" routerLink="/employees/edashboard">Home</a>
+          </a>
+
+          <!-- Navbar Toggler for Mobile View -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Logout Button on the Right -->
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="btn btn-outline-dark mb-2" style="border: 1px solid black; color: black; background-color: #AC4425; color: white;" (click)="logout()">Logout</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</header>
+
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header" style="background-color: #436850; color: white;">
+      <h2>Edit Travel Request</h2>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="submitEditRequest()">
+        <div class="form-group">
+          <label>Purpose</label>
+          <input type="text" class="form-control" formControlName="purpose" required>
+        </div>
+
+        <div class="form-group">
+          <label>From Location</label>
+          <input type="text" class="form-control" formControlName="from_loc" required>
+        </div>
+
+        <div class="form-group">
+          <label>To Location</label>
+          <input type="text" class="form-control" formControlName="to_loc" required>
+        </div>
+
+        <div class="form-group">
+          <label>Travel Mode</label>
+          <select class="form-control" formControlName="travel_mode">
+            <option value="Flight">Flight</option>
+            <option value="Train">Train</option>
+            <option value="Bus">Bus</option>
+            <option value="Car">Car</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>From Date</label>
+          <input type="date" class="form-control" formControlName="from_date" required>
+        </div>
+
+        <div class="form-group">
+          <label>To Date</label>
+          <input type="date" class="form-control" formControlName="to_date" required>
+        </div>
+
+        <div class="form-group">
+          <label>Lodging Required</label>
+          <select class="form-control" formControlName="lodging_required">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Additional Request</label>
+          <textarea class="form-control" formControlName="additional_request"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Manager's Name</label>
+          <input type="text" class="form-control" [value]="managerName" disabled>
+        </div>
+
+        <div class="form-group">
+          <label>Manager Note</label>
+          <textarea class="form-control" formControlName="manager_note" [attr.disabled]="'disabled'"></textarea>
+          <div *ngIf="managerNote" class="alert alert-warning mt-2">
+            <strong>Manager's Note:</strong> {{ managerNote }}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!editForm.valid">Update Request</button>
+      </form>
+    </div>
+  </div>
+</div>
+  

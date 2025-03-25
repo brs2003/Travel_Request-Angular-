@@ -1,0 +1,57 @@
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Company Logo -->
+            <a class="navbar-brand">
+                <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="40" class="d-inline-block align-text-top">
+            </a>
+            <!-- Navbar Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<section class="container min-vh-100 d-flex align-items-center">
+    <div class="row w-100 g-4">
+        <!-- Left Column -->
+        <article class="col-lg-8 col-md-7 text-center d-flex flex-column align-items-center">
+            <!-- Centered Image -->
+            <img src="assets/frontpage.jpg" class="img-fluid rounded border p-3" alt="Centered Image" style="max-width: 100%; height: auto;">
+            <h2 class="mt-3">Beyond Borders: A Journey Through the Unknown</h2>
+            <p>"We travel not to escape life, but for life not to escape us."</p>
+        </article>
+
+        <!-- Right Column -->
+        <article class="col-lg-4 col-md-5 text-center d-flex flex-column align-items-center">
+            <div class="right-col p-4 border rounded shadow w-100">
+                <h3 style="font-family: 'Georgia', serif;">Login To Your Account</h3>
+
+                <!-- Role Selection Buttons -->
+                <div class="btn-group mt-3 w-100" role="group">
+                    <button type="button" class="btn btn-custom" [class.active]="selectedRole === 'employee'" (click)="selectRole('employee')">Employee</button>
+                    <button type="button" class="btn btn-custom" [class.active]="selectedRole === 'admin'" (click)="selectRole('admin')">Admin</button>
+                    <button type="button" class="btn btn-custom" [class.active]="selectedRole === 'manager'" (click)="selectRole('manager')">Manager</button>
+                </div>
+
+                <!-- Login Form -->
+                <form class="mt-4 w-100" (ngSubmit)="onLogin()">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-custom w-100">Login</button>
+                </form>
+
+                <!-- Display Error Message -->
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+                    {{ errorMessage }}
+                </div>
+            </div>
+        </article>
+    </div>
+</section>

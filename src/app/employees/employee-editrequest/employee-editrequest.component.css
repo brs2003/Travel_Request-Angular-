@@ -1,0 +1,19 @@
+.bg {
+    background-color: #C2FFC7;
+  }
+.card {
+    border-radius: 15px;
+    background: #fff;
+}
+.form-control, .form-select {
+    border-radius: 10px;
+}
+.btn-primary {
+    background-color: #064635;
+    border-color: black;
+    border-radius: 10px;
+}
+.btn-primary:hover {
+    background-color: #519259;
+    border-color: black;
+}

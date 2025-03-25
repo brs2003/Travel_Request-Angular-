@@ -1,0 +1,40 @@
+/* Background color for the entire page */
+body {
+    background-color: #C2FFC7;
+}
+
+/* Card styling */
+.card {
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Input fields and dropdown styling */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #064635;
+    border-color: black;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #519259;
+    border-color: black;
+}
+
+/* Aligning radio buttons */
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-label {
+    font-weight: 500;
+}

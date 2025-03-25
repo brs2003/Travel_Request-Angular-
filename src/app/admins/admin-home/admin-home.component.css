@@ -1,0 +1,16 @@
+/* .bg {
+    background-color: #C2FFC7;
+} */
+.status-indicator {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+}
+.status-box h6 {
+    font-size: 14px;
+    
+}
+
+h4{
+    font-family:'Playfair Display', serif;
+}

@@ -1,0 +1,90 @@
+<div class ="bg vh-100"> 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom">
+    <div class="container-fluid">
+      <!-- Company Logo -->
+      <a class="navbar-brand" href="#">
+        <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150" height="40" class="d-inline-block align-text-top">
+      </a>
+      <!-- Navbar Toggler -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <!-- New Travel Request Button -->
+          <li class="nav-item me-2">
+            <a class="btn btn-outline-light custom-btn" routerLink="/employees/newrequest">New Travel Request</a>
+          </li>
+          <!-- Logout Button -->
+          <li class="nav-item">
+            <a class="btn btn-outline-light logout-btn" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<section>
+  <div class="container mt-2">
+    <!-- Section Header -->
+    <nav class="navbar navbar-light navbar-custom">
+      <div class="container-fluid justify-content-center">
+        <span class="navbar-brand mb-0 h1 navbar-brand-custom">My Current Request</span>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container mt-4">
+    <div class="table-responsive">
+      <!-- Employee Requests Table -->
+      <table class="table table-bordered text-white table-custom">
+        <thead>
+          <tr>
+            <th scope="col">From-Date</th>
+            <th scope="col">To-Date</th>
+            <th scope="col">Purpose</th>
+            <th scope="col">Manager Status</th>
+            <th scope="col">Admin Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of requestdata">
+            <td>{{ request.from_date }}</td>
+            <td>{{ request.to_date }}</td>
+            <td>{{ request.purpose }}</td>
+            <td>
+              <button class="btn btn-sm status-btn" [ngClass]="{
+                'btn-warning': request.manager_status === 'Pending',
+                'btn-success': request.manager_status === 'Approved',
+                'btn-danger': request.manager_status === 'Declined',
+                'btn-primary': request.manager_status === 'OnProgress',
+              }">
+                {{ request.manager_status }}
+              </button>
+            </td>
+            <td>
+              <span class="badge bg-danger" *ngIf="request.admin_status === 'Closed'">Closed</span>
+              <span class="badge bg-warning" *ngIf="request.admin_status === 'Not_closed'">Not Closed</span>
+          </td>
+            <td>
+              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'Declined'" 
+              class="btn btn-sm edit-btn" [routerLink]="['/employees/editrequest', request.id]">Edit</button>
+      
+              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'Declined'" 
+              class="btn btn-danger btn-sm delete-btn ms-2" 
+              (click)="deleteRequest(request)">Cancel</button>
+
+              <button class="btn btn-sm view-btn ms-2" (click)="viewRequest(request)">View</button>
+      
+            </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+</div>

@@ -1,0 +1,92 @@
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center">
+            <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="30" class="d-inline-block align-text-top">
+            <a class="nav-link text-white ms-3" routerLink="/admins/adashboard">Home</a>
+        </a>
+      <div class="collapse navbar-collapse justify-content-end">
+        <a class="btn btn-outline-dark" routerLink="/login" style="border: 1px solid black; background-color: #AC4425; color:white;">Logout</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Container -->
+  <div class="container mt-3">
+    <div class="row">
+      <!-- Travel Request Form -->
+      <div class="col-md-6">
+        <div class="card p-4 shadow-lg">
+          <h2 class="text-center mb-4">Travel Request Form</h2>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Purpose of Travel:</label>
+              <input type="text" class="form-control" [value]="requestData?.purpose" readonly>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">From Location:</label>
+              <input type="text" class="form-control" [value]="requestData?.from_loc" readonly>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">To Location:</label>
+              <input type="text" class="form-control" [value]="requestData?.to_loc" readonly>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Preferred Travel Mode:</label>
+              <input type="text" class="form-control" [value]="requestData?.travel_mode" readonly>
+            </div>
+  
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label class="form-label">Travel From Date:</label>
+                <input type="date" class="form-control" [value]="requestData?.from_date" readonly>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Travel To Date:</label>
+                <input type="date" class="form-control" [value]="requestData?.to_date" readonly>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label class="form-label">Lodging Required?</label>
+              <input type="text" class="form-control" [value]="requestData?.lodging_required" readonly>
+            </div>
+  
+            <!-- <div class="mb-3">
+              <label class="form-label">Preferred Lodging Location:</label>
+              <input type="text" class="form-control" [value]="requestData?.lodging_location" readonly>
+            </div> -->
+  
+            <div class="mb-3">
+              <label class="form-label">Additional Requests:</label>
+              <textarea class="form-control" rows="3" [innerText]="requestData?.additional_request" readonly></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Message to User Form -->
+      <!-- Message to User Form -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center" style="background-color:#123524;">
+        <div class="card p-4 shadow-lg w-100">
+          <div class="d-flex justify-content-center mb-4">
+            <button style="background-color: #123524; color: white;" class="btn">Message to User</button>
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="message" class="form-label">Add Text:</label>
+              <textarea class="form-control" rows="5" [(ngModel)]="adminNote" name="adminNote"></textarea>
+            </div>
+          </form>
+          <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-danger me-2" (click)="closeRequest()">Close</button>
+          </div>
+        </div>
+      </div>
+      
+
+  </div>
+  

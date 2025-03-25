@@ -1,0 +1,17 @@
+
+  .card {
+    border: none;
+  }
+  
+  th {
+    background-color: #436850;
+    color: white;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  td {
+    text-align: left;
+    padding: 10px;
+  }
+  

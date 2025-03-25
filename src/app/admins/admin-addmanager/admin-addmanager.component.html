@@ -1,0 +1,67 @@
+<header>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Company Logo and Home Button -->
+            <a class="navbar-brand d-flex align-items-center">
+                <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="30" class="d-inline-block align-text-top">
+                <a class="nav-link text-white ms-3" routerLink="/admins/adashboard">Home</a>
+            </a>
+
+            <!-- Navbar Toggler for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Logout Button on the Right -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="btn btn-outline-dark mb-2" style="border: 1px solid black; color: black; background-color: #AC4425; color: white;" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <button class="btn btn-primary btn-lg" style="background-color: #123524;">Enter Manager Details</button>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="managerForm" (ngSubmit)="addManager()">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" formControlName="first_name" placeholder="Enter first name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" formControlName="last_name" placeholder="Enter last name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dateOfJoining" class="form-label">Date of Joining</label>
+                            <input type="date" class="form-control" id="dateOfJoining" formControlName="date_of_joining">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-success" [disabled]="managerForm.invalid" routerLink="/admins/adashboard">Add Manager</button>
+                            <button type="reset" class="btn btn-secondary" (click)="managerForm.reset()" routerLink="/admins/adashboard">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    

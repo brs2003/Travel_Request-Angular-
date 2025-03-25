@@ -1,0 +1,88 @@
+<header>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+      <div class="container-fluid">
+          <!-- Company Logo and Home Button -->
+          <a class="navbar-brand d-flex align-items-center">
+              <img src="assets/ReflectionsLogocorrect.svg" alt="Company Logo" width="150px" height="30" class="d-inline-block align-text-top">
+              <a class="nav-link text-white ms-2" routerLink="/employees/edashboard">Home</a>
+          </a>
+
+          <!-- Navbar Toggler for Mobile View -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Logout Button on the Right -->
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                  <a class="btn btn-outline-dark mb-2" style="border: 1px solid black; color: black; background-color: #AC4425; color: white;" (click)="logout()">Logout</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</header>
+
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light-green">
+    <div class="card shadow-lg p-4 rounded-3" style="width: 40rem; background-color: #f0fff0;">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Travel Request Details</h2>
+  
+        <table class="table table-bordered table-striped">
+          <tbody>
+            <tr>
+              <th>From</th>
+              <td>{{ requestDetails.from_loc }}</td>
+            </tr>
+            <tr>
+              <th>To</th>
+              <td>{{ requestDetails.to_loc }}</td>
+            </tr>
+            <tr>
+              <th>Purpose</th>
+              <td>{{ requestDetails.purpose }}</td>
+            </tr>
+            <tr>
+              <th>Travel Mode</th>
+              <td>{{ requestDetails.travel_mode }}</td>
+            </tr>
+            <tr>
+              <th>From Date</th>
+              <td>{{ requestDetails.from_date }}</td>
+            </tr>
+            <tr>
+              <th>To Date</th>
+              <td>{{ requestDetails.to_date }}</td>
+            </tr>
+            <tr>
+              <th>Manager Status</th>
+              <td>
+                <span class="badge" [ngClass]="{
+                  'bg-success': requestDetails.manager_status === 'Approved',
+                  'bg-danger': requestDetails.manager_status === 'Rejected',
+                  'bg-warning': requestDetails.manager_status === 'Pending'
+                }">
+                  {{ requestDetails.manager_status }}
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <th>Manager Note</th>
+              <td>{{ requestDetails.manager_note }}</td>
+            </tr>
+            <tr>
+              <th>Admin Note</th>
+              <td>{{ requestDetails.admin_note }}</td>
+            </tr>
+
+          </tbody>
+        </table>
+  
+        <div class="text-center mt-3">
+          <button class="btn btn-dark" (click)="goBack()">Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
