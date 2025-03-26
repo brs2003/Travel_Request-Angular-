@@ -53,7 +53,7 @@ export class SpecificEmployeeFormComponent implements OnInit {
       return;
     }
 
-    const updatedStatus = status === 'Declined' ? 'Canceled' : status === 'On Progress' ? 'OnProgress' : status;
+    const updatedStatus = status === 'Declined' ? 'Declined' : status === 'On Progress' ? 'OnProgress' : status==='Approved'?'Approved' :status;
 
     this.managerService.updateManagerStatus(
       this.requestData.req_id, // Ensure correct request ID
