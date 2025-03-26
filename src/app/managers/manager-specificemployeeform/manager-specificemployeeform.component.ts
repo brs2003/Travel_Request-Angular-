@@ -10,10 +10,10 @@ import { Location } from '@angular/common';
 })
 export class SpecificEmployeeFormComponent implements OnInit {
   request: any; // Store request details
-  feedback: string = ''; // Store manager feedback
-  managerId: number = 1; // Replace with actual manager ID (should be dynamically assigned)
+  feedback = ''; // Store manager feedback
+  managerId = 1; // Replace with actual manager ID (should be dynamically assigned)
   requestData: any; // Add this property
-  managerNote: string = ''; // Add this property
+  managerNote = ''; // Add this property
   
   constructor(
     private route: ActivatedRoute,

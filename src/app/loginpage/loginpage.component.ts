@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   styleUrl: './loginpage.component.css'
 })
 export class LoginpageComponent {
-  username: string = '';
-  password: string = '';
-  selectedRole: string = 'employee'; // Default role
-  errorMessage: string = '';
+  username = '';
+  password = '';
+  selectedRole = 'employee'; // Default role
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 

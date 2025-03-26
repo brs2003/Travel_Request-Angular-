@@ -11,8 +11,8 @@ import { TravelRequestService } from '../services/travel-request.service';
 export class EmployeeEditrequestComponent implements OnInit {
   editForm!: FormGroup;
   requestId!: number;
-  managerNote: string='';
-  managerName: string = '';
+  managerNote='';
+  managerName = '';
 
   constructor(
     private fb: FormBuilder,

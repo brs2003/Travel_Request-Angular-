@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminCancelrequestComponent implements OnInit {
   @Input() requestData: any;  // Receive the selected request details
-  adminNote: string = ''; // Admin note input
+  adminNote = ''; // Admin note input
 
   constructor(private adminService: AdminService,private route: ActivatedRoute,private router: Router) {}
 

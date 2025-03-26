@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './employeelist.component.html',
   styleUrl: './employeelist.component.css'
 })
-export class EmployeelistComponent {
+export class EmployeelistComponent implements OnInit {
   employees: any[] = []; // Store fetched employees
 
   constructor(private adminService: AdminService,private router: Router ) {}

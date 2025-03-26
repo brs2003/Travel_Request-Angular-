@@ -73,7 +73,7 @@ export class ManagerHomeComponent implements OnInit{
   
 
   applyFilters(): void {
-    let { searchName, searchDateRange, filterCriteria, sortOrder } = this.searchForm.value;
+    const { searchName, searchDateRange, filterCriteria, sortOrder } = this.searchForm.value;
   
     // Convert date input to Date objects for comparison
     let fromDate: Date | null = null, toDate: Date | null = null;

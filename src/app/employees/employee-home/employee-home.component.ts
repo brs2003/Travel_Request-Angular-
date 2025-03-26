@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TravelRequestService } from '../services/travel-request.service';
 
@@ -7,7 +7,7 @@ import { TravelRequestService } from '../services/travel-request.service';
   templateUrl: './employee-home.component.html',
   styleUrls: ['./employee-home.component.css']
 })
-export class EmployeeHomeComponent {
+export class EmployeeHomeComponent implements OnInit {
   requestdata: any = [];
 
   constructor(

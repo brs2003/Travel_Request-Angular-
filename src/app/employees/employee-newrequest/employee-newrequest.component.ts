@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class EmployeeNewrequestComponent implements OnInit {
   travelRequestForm!: FormGroup; // Form Group
-  managerName: string = '';
-  manager_status: string = ''; // Add this variable
+  managerName = '';
+  manager_status = ''; // Add this variable
  // Manager
   constructor(private fb: FormBuilder,private travelrequest: TravelRequestService,private router: Router) {
     

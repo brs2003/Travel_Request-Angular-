@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AdminAddemployeeComponent {
   employeeForm: FormGroup;
-  successMessage: string = '';
-  errorMessage: string = '';
+  successMessage = '';
+  errorMessage = '';
 
   constructor(private fb: FormBuilder, private adminService: AdminService,private router: Router) {
     this.employeeForm = this.fb.group({

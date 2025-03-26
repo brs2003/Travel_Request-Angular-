@@ -10,8 +10,8 @@ import { AdminService } from '../services/admin.service';
 })
 export class AdminAddmanagerComponent implements OnInit {
   managerForm!: FormGroup;
-  errorMessage: string = '';
-  successMessage: string = '';
+  errorMessage = '';
+  successMessage = '';
 
   constructor(
     private fb: FormBuilder,
