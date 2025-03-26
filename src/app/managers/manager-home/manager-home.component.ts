@@ -49,7 +49,7 @@ export class ManagerHomeComponent implements OnInit{
   fetchRequests(): void {
     this.managerService.getTravelRequests().subscribe(
       (data: any) => {
-        console.log('API Response:', data); // ✅ Debugging Step 1
+        console.log('API Response:', data); //  Debugging Step 1
   
         if (!Array.isArray(data)) {
           console.error('Error: API did not return an array', data);
@@ -59,7 +59,7 @@ export class ManagerHomeComponent implements OnInit{
         this.requests = data;
         this.filteredRequests = [...this.requests];
   
-        console.log('Requests:', this.requests); // ✅ Debugging Step 2
+        console.log('Requests:', this.requests); //  Debugging Step 2
         this.updateStatusCounts(this.requests);
       },
       error => console.error('Error fetching travel requests', error)

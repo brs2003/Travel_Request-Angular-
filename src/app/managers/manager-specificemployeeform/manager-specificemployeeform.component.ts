@@ -25,7 +25,7 @@ export class SpecificEmployeeFormComponent implements OnInit {
   ngOnInit(): void {
     this.managerService.getTravelRequests().subscribe(
       (data: any) => {
-        console.log('API Response:', data); // ✅ Debugging Step 1
+        console.log('API Response:', data); //  Debugging Step 1
   
         if (!Array.isArray(data)) {
           console.error('Error: API did not return an array', data);

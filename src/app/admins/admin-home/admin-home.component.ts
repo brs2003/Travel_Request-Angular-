@@ -31,11 +31,11 @@ export class AdminHomeComponent implements OnInit{
       this.adminService.getAllRequests().subscribe(
         (data) => {
           this.requests = data;
-          console.log('Travel Requests:', data); // ✅ Debugging Step
+          console.log('Travel Requests:', data); 
 
           this.filteredRequests = [...this.requests];
   
-          console.log(' Travel Requests:', this.requests); // ✅ Debugging Step 2
+          console.log(' Travel Requests:', this.requests); 
           this.updateStatusCounts(this.requests);
         },
         (error) => {

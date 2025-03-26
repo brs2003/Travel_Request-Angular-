@@ -16,7 +16,7 @@ export class AdminCancelrequestComponent implements OnInit {
   ngOnInit(): void {
     this.adminService.getAllRequests().subscribe(
       (data: any) => {
-        console.log('API Response:', data); // ✅ Debugging Step 1
+        console.log('API Response:', data); // Debugging Step 1
   
         if (!Array.isArray(data)) {
           console.error('Error: API did not return an array', data);
@@ -57,7 +57,7 @@ export class AdminCancelrequestComponent implements OnInit {
     this.adminService.closeTravelRequest(ticketId, this.adminNote).subscribe({
       next: (response) => {
         alert(response.message);
-        console.log('API Response:', response); // ✅ Debugging Step
+        console.log('API Response:', response); 
         this.router.navigate(['/admins/adashboard']);
       },
       error: (error) => {
