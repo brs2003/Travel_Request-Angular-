@@ -71,10 +71,11 @@
               <span class="badge bg-warning" *ngIf="request.admin_status === 'Not_closed'">Not Closed</span>
           </td>
             <td>
-              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'Declined'" 
+              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'OnProgress'" 
               class="btn btn-sm edit-btn" [routerLink]="['/employees/editrequest', request.id]">Edit</button>
       
-              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'Declined'" 
+              <button *ngIf="request.manager_status === 'Pending' || request.manager_status === 'Declined' || request.manager_status === 'OnProgress'" 
+              class="btn btn-danger btn-sm delete-btn ms-2" 
               class="btn btn-danger btn-sm delete-btn ms-2" 
               (click)="deleteRequest(request)">Cancel</button>
 

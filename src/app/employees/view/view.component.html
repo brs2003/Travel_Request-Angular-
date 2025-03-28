@@ -60,8 +60,9 @@
               <td>
                 <span class="badge" [ngClass]="{
                   'bg-success': requestDetails.manager_status === 'Approved',
-                  'bg-danger': requestDetails.manager_status === 'Rejected',
-                  'bg-warning': requestDetails.manager_status === 'Pending'
+                  'bg-danger': requestDetails.manager_status === 'Declined',
+                  'bg-warning': requestDetails.manager_status === 'Pending',
+                  'bg-primary': requestDetails.manager_status === 'OnProgress',
                 }">
                   {{ requestDetails.manager_status }}
                 </span>
